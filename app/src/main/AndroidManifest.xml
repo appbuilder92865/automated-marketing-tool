@@ -1,0 +1,67 @@
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.madhub.automatedmarketingto">
+
+    <!-- 
+    Problem Statement: Mobile applications often require various permissions to function properly, particularly for automated tasks.
+    Solution: By declaring the necessary permissions below, we enable the app to perform network operations, access storage, and manage user interactions seamlessly.
+    -->
+
+    <!-- Permission to access the internet is essential for the application to connect with social media APIs. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    
+    <!-- 
+    This permission allows access to network state. It helps in determining whether the device is connected to the internet,
+    which is crucial for the automated marketing functions of the application.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- 
+    Storage permission is required to read and write files, enabling the app to save user configurations 
+    and logs, which are essential for analyzing the automated marketing processes.
+    -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!-- 
+        Problem Statement: The main entry point that users interact with needs to be registered for receiving intents.
+        Solution: By declaring MainActivity below, we ensure that the app opens correctly and provides a user-friendly interface for managing automation tasks.
+        -->
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 
+        Problem Statement: Continuous background operations are essential for an automated marketing tool to function effectively.
+        Solution: By registering AutomationService, we allow the app to run its automation tasks in the background,
+        ensuring that user engagement can be maintained without direct app interaction.
+        -->
+        <service android:name=".AutomationService"
+            android:enabled="true"
+            android:exported="false" />
+        
+    </application>
+</manifest>
+```
+
+### Explanation of the Code:
+
+- **Permissions**: Each permission is explained with its necessity, addressing the specific challenges faced by users in an automated marketing context. The permissions allow for proper network connectivity and storage access, vital for operations.
+
+- **MainActivity**: This component is the entry point of the app, providing a user interface necessary for users to configure and manage automation tasks. The problem of user interaction is solved through this declaration.
+
+- **AutomationService**: By registering this service, the app ensures that automated marketing operations can continue running in the background, thus addressing the need for continuous user engagement and dynamic content management across social media platforms.
+
+This configuration file sets the foundation for a fully functioning automated marketing tool using MadHub technology, enabling effective management and automation of tasks on Android devices.
